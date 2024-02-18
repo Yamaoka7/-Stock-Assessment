@@ -1,0 +1,12 @@
+def age_structured_stock_assessment(initial_population, recruitment_rate, mortality_rate):
+    population = [initial_population]
+    for i in range(1, len(recruitment_rate)):
+        population.append((population[i - 1] + recruitment_rate[i - 1]) * (1 - mortality_rate[i - 1]))
+    return population
+
+# Example usage:
+initial_population = 1000  # Initial population size
+recruitment_rate = [200, 150, 100, 50]  # Recruitment rates by age
+mortality_rate = [0.2, 0.3, 0.4, 0.5]  # Mortality rates by age
+population_by_age = age_structured_stock_assessment(initial_population, recruitment_rate, mortality_rate)
+print("Population by age group:", population_by_age)
